@@ -31,9 +31,15 @@ class CacheKeyFromArgumentsMacro(val c: blackbox.Context) {
     val keyName = createKeyName()
     val cachingCall = keyNameToCachingCall(keyName)
 
+
+
+    val cacheKeyOmitType = c.typeOf[cacheKeyOmit]
+    def shouldExclude(s: c.Symbol) = {
+      s.annotations.exists(a => a.tree.tpe == cacheKeyOmitType)
+    }
     val arguments: List[Ident]= (methodParamssSymbols).map(ss =>
       ss.collect {
-        case s => Ident(s.name)
+        case s if !shouldExclude(s) => Ident(s.name)
       }).flatten
 
     val methodName = showRaw(enclosingMethodSymbol.name.decodedName)

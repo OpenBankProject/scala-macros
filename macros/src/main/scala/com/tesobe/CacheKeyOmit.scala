@@ -14,4 +14,4 @@ import scala.annotation.StaticAnnotation
   *
   * will not include the value of the `b` parameter in its cache keys.
   */
-final class cacheKeyOmit extends StaticAnnotation
+final class CacheKeyOmit extends StaticAnnotation

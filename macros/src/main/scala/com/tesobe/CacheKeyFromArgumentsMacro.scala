@@ -33,7 +33,7 @@ class CacheKeyFromArgumentsMacro(val c: blackbox.Context) {
 
 
 
-    val cacheKeyOmitType = c.typeOf[cacheKeyOmit]
+    val cacheKeyOmitType = c.typeOf[CacheKeyOmit]
     def shouldExclude(s: c.Symbol) = {
       s.annotations.exists(a => a.tree.tpe == cacheKeyOmitType)
     }

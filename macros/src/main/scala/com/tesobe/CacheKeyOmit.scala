@@ -9,7 +9,7 @@ import scala.annotation.StaticAnnotation
   * e.g.
   *
   * {{{
-  * def foo(a: Int, @cacheKeyExclude b: String, c: String): Int = memoize { ... }
+  * def foo(a: Int, @CacheKeyOmit b: String, c: String): Int = buildCacheKey { ... }
   * }}}
   *
   * will not include the value of the `b` parameter in its cache keys.

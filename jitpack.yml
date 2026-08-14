@@ -1,0 +1,6 @@
+# JitPack's default sbt build runs `sbt -Dsbt.log.noformat=true clean publishM2`,
+# which publishes only the default Scala version. `+publishM2` cross-publishes
+# every entry in crossScalaVersions, so one tag yields both the _2.12 and the
+# _2.13 artifacts.
+install:
+  - sbt -Dsbt.log.noformat=true clean +publishM2
